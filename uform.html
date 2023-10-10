@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      form {
+        width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      input[type="email"],
+      input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      button[type="submit"] {
+        background-color: #fff;
+        color: #666;
+        border: none;
+        padding: 0;
+        margin-top: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      button[type="submit"]:hover {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>login</h1>
+    <form action="/man" method="POST">
+      <label for="name">Email</label>
+      <input type="email" id="name" name="email" required><br><br>
+      <label for="email">Password:</label>
+      <input type="password" id="email" name="password" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <form action="/uregister">
+      <button type="submit">don't have an account</button>
+    </form>
+  </body>
+</html>

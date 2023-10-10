@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            color: #44a948;
+            margin: 20px;
+        }
+
+        /* Header styles */
+        .header1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .header button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+        color: white;
+    }
+
+    .header button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Search bar styling */
+    .search-bar {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 10px;
+        width: 300px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .search-bar button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+
+        /* Navigation button styles */
+        .nav-buttons form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Container for items */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* Individual item styles */
+        .item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .item:hover {
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            margin: 0 auto 10px;
+        }
+
+        .item h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .item p {
+            margin: 5px 0;
+        }
+        .item .image-container {
+        background-color: #f8f8f8; /* Set your preferred background color */
+        border-radius: 5px;
+        overflow: hidden; /* Prevent image overflow */
+        padding: 5px; /* Add some padding to separate image from container */
+    }
+
+    /* Apply rounded corners to the images */
+    .item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        display: block;
+    }
+        /* Responsive layout adjustments */
+        @media (max-width: 768px) {
+            .item {
+                width: calc(50% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <div class="search-bar">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search for items">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        
+    </div>
+    
+    <div class="container">
+        {% for item in data %}
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/' + item[0]) }}" width="200" height="300">
+                <h3>{{ item[1] }}</h3>
+                <p>Price: {{ item[2] }}</p>
+                <p>Category: {{ item[3] }}</p>
+                <p>Available: {{ item[4] }}</p>
+                <form action="/add_to_carts" method="POST">
+                    <input type="hidden" name="item_id" value="{{ item[0] }}">
+                    <input type="hidden" name="name" value="{{ item[1] }}">
+                    <input type="hidden" name="category" value="{{ item[3] }}">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

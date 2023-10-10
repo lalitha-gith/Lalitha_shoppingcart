@@ -1,0 +1,62 @@
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.item:hover {
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+}
+
+.item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.item h3 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.item p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.total-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+  }
+  
+.calculate-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
